@@ -28,6 +28,7 @@ settings = {
     "PitchTo": 100,
     "BinSize": 5,
     "ChunkMs": 100,
+    "AppManifestFile": "app.vrmanifest"
 }
 
 ###
@@ -45,6 +46,10 @@ p = pyaudio.PyAudio()  # Create an interface to PortAudio
 
 print('Recording')
 
+def resource_path(relative_path):
+    """Gets absolute path from relative path"""
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
 ### Utilities ##################################################################
 def mat34Id():
@@ -292,5 +297,8 @@ async def init_main():
 
 if __name__ == '__main__':
     openvr.init(openvr.VRApplication_Overlay)
+
+    appmanifest_path = os.path.join(os.path.join(resource_path(settings["AppManifestFile"])))
+    openvr.VRApplications().addApplicationManifest(appmanifest_path)
 
     asyncio.run(init_main())

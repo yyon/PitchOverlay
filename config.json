@@ -8,5 +8,6 @@
     "PitchFrom": 180,
     "PitchTo": 100,
     "BinSize": 5,
-    "ChunkMs": 100
+    "ChunkMs": 100,
+    "AppManifestFile": "app.vrmanifest"
 }

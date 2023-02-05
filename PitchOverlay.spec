@@ -4,6 +4,8 @@ block_cipher = None
 
 added_files = [
          ( 'Images', 'Images' ),
+         ( 'app.vrmanifest', '.'),
+         ( 'config.json', '.'),
          ]
 
 import openvr
