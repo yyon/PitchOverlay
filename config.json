@@ -1,0 +1,12 @@
+{
+    "Colour": [0, 1, 1],
+    "Transparency": 0.85,
+    "Normalised icon X position": 0.28,
+    "Normalised icon Y position": -0.41, 
+    "Icon plane depth": 0.9,
+    "Normalised icon width": 0.08,
+    "PitchFrom": 180,
+    "PitchTo": 100,
+    "BinSize": 5,
+    "ChunkMs": 100
+}

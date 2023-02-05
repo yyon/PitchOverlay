@@ -7,10 +7,12 @@ added_files = [
          ]
 
 import openvr
+import crepe
 openvr_dll_path = os.path.join(os.path.dirname(openvr.__file__), 'libopenvr_api_64.dll')
+crepe_model_path = os.path.join(os.path.dirname(crepe.__file__), 'model-tiny.h5')
          
-a = Analysis(['GestureOverlay.py'],
-             binaries=[ (openvr_dll_path, '.' ), ],
+a = Analysis(['PitchOverlay.py'],
+             binaries=[ (openvr_dll_path, '.' ), (crepe_model_path, 'crepe/')],
              datas = added_files,
              hiddenimports=['ctypes'],
              hookspath=[],
@@ -24,7 +26,7 @@ pyz = PYZ(a.pure, a.zipped_data,
 exe = EXE(pyz,
           a.scripts,
           exclude_binaries=True,
-          name='GOpy',
+          name='PitchOverlay',
           debug=False,
           strip=False,
           upx=True,
@@ -35,4 +37,4 @@ coll = COLLECT(exe,
                a.datas,
                strip=False,
                upx=True,
-               name='GOpy')
+               name='PitchOverlay')
